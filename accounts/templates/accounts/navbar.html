@@ -1,0 +1,37 @@
+{% load static %}
+
+<style>
+  #logout{
+    color: red; 
+    font: bold;
+  }
+</style>
+
+<link rel="stylesheet" type="text/css" href="{% static '/css/logo.css'%}">
+<nav class="navbar navbar-expand-lg navbar-dark bg-info">
+  <img src="{% static '/img/logo.png'%}">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      {% if request.user.is_staff %}
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'home' %}">Deshboard<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'product' %}">Products</a>
+      </li>
+      {% else %}
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'accountsetting' %}">Setting</a>
+      </li>
+     {% endif %}
+    </ul>
+  </div>
+
+  <span>Hello, {{request.user}} &nbsp</span>
+  <span><a href="{% url 'logout' %}" id="logout">Logout</a></span>
+
+
+</nav>

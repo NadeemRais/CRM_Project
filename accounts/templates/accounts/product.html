@@ -1,0 +1,35 @@
+{% extends 'accounts/base.html' %}
+
+{% block content %}
+
+<div class="container-fluid">
+	<br>
+
+		<div class="row">
+			<div class="col-md">
+				<div class="card card-body">
+					<h4 style="color: red">Products</h4>
+				</div>
+				<div class="card card-body">
+					<table class="table">
+						<tr>
+							<th style="color: green">Product</th>
+							<th style="color: green">Category</th>
+							<th style="color: green">Price</th>
+						</tr>
+						{% for i in products %}
+						<tr>
+							<td>{{i.name}}</td>
+							<td>{{i.category}}</td>
+							<td>{{i.price}}</td>
+						</tr>
+						{% endfor %}
+						
+					</table>
+				</div>
+			</div>
+			
+		</div>
+</div>		
+
+{% endblock %}

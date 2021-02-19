@@ -1,0 +1,22 @@
+{% extends 'accounts/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="row">
+	<div class="offset-md-3 col-md-6">
+		<div class="card card-body">
+	
+			<form method="POST">
+				{% csrf_token %}
+				<h2>Do you want to delete: {{item}}</h2>
+
+				<input type="submit" value="Delete" class="btn btn-danger">
+				<a href="{% url 'home' %}" class="btn btn-primary">No</a>
+			</form>
+		</div>
+	</div>
+</div>			
+
+
+{% endblock %}
